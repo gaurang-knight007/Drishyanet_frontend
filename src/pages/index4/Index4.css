@@ -1,0 +1,164 @@
+.container4 {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  color: white;
+  background-image: url(signbg2.jpg);
+  position: relative;
+}
+
+/* Logo Container (Top-Left) */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo4 {
+  width: 250px; /* Adjust logo size */
+  height: auto;
+}
+
+/* Navbar Styling */
+.navbar4 {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  min-height: 145px;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.7); /* Added semi-transparency */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.navbar4 li {
+  margin: 0 30px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  padding-top: 5%;
+}
+
+.navbar4 a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.navbar4 a:hover {
+  color: #28a745; /* Green hover effect */
+}
+
+/* Logo inside navbar */
+.logo4 img {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Input and Button Containers */
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.inp2 {
+  width: 300px;
+  padding: 10px;
+  font-size: 1.2em;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.2); /* Slight transparency */
+  color: white;
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Output Section */
+.output {
+  font-size: 1.5em;
+  color: lightgreen;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* View Data Button */
+.view-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Attendance Data Section */
+.attendance-data {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+}
+
+/* Styling for a smoother overall layout */
+@media (max-width: 768px) {
+  .navbar4 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar4 li {
+    margin: 10px 0;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  .inp2 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .start-button, .view-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+  }
+}
