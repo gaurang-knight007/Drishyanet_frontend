@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 import logo1 from "./logo1.png"
 import "./SignUp.css";
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const SignUp = ()=>{
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
