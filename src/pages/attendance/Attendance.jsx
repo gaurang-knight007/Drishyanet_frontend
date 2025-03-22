@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Attendance.css";
 import logo from "./logo1.png";
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const Attendance = () => {
     const navigate = useNavigate();
     const proceedToIndex3 = async() => {
