@@ -191,7 +191,7 @@
   align-items: center;
   align-self: center;
   object-fit: contain;
-  margin-top: 20px; /* Adjusted margin for better spacing on small screens */
+  margin-top: 20px;
 }
 
 
@@ -406,7 +406,7 @@
   }
 
   .quest {
-    width: 90%; ]
+    width: 90%;
   }
 
   .quest .textbox {
