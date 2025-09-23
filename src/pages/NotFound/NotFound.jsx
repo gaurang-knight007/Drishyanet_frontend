@@ -65,7 +65,7 @@ useEffect(() => {
       const prevRight = prevObsRightRef.current;
       if (prevRight !== null) {
         if (prevRight > charRect.left && obsRect.right <= charRect.left) {
-          setScore((s) => s + 1);
+          setScore((s) => s + 2);
         }
       }
       prevObsRightRef.current = obsRect.right;
@@ -84,7 +84,7 @@ useEffect(() => {
     setScore(0);
     setIsJumping(false);
     prevObsRightRef.current = null;
-    setObsKey((k) => k + 1);
+    setObsKey((k) => k + 2);
   };
 
   const handleGoBack = () => {

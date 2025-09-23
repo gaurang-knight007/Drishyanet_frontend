@@ -97,8 +97,8 @@
 }
 
 .obstacle {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background-color: #ff4d4d;
   position: absolute;
   bottom: 0;
