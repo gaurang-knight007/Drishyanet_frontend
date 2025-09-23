@@ -1,0 +1,139 @@
+.glatt
+{
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: url("../../assets/signbg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #e6edf3;
+  padding-bottom: 40px;
+}
+
+.attendance {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: url("../../assets/signbg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #e6edf3;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.navbar-att {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  grid-area: navbar;
+
+}
+
+.nav-logo {
+  width: 250px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-btn111 {
+  background: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn111:hover {
+  background: #009acd;
+  transform: translateY(-2px);
+}
+
+.logout-btn {
+  background: transparent;
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+}
+
+.logout-btn:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+.attendance input {
+  margin: 15px 0;
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #e6edf3;
+  text-align: center;
+}
+
+.btn-group11 {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.attendance button {
+  background: #00bfff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.attendance button:hover {
+  background: #009acd;
+}
+
+.attendance header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.attendance img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 90vb;
+}
+
+@media only screen and (max-width: 768px)
+{
+  .attendance img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 50vb;
+}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+  .attendance img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 80vb;
+}
+}

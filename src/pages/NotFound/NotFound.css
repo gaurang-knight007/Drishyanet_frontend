@@ -1,0 +1,159 @@
+.notfound-container {
+  text-align: center;
+  padding: 30px;
+  background: url("../../assets/image.png") no-repeat center center fixed;
+  background-size: contain; 
+  background-color: #000814; 
+  min-height: 100vh;
+  color: white;
+  font-family: "Arial", sans-serif;
+  position: relative;
+}
+
+.notfound-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 20px;
+}
+
+.notfound-logo {
+  width: 250px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+
+.go-back-btn {
+  padding: 8px 14px;
+  background: #00bfff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+.go-back-btn:hover { background: #008fd3; }
+
+.notfound-title {
+  font-size: 2.6rem;
+  margin: 10px 0 6px;
+  color: #00bfff;
+}
+
+.notfound-text {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: #e6f7ff;
+}
+
+.instructions {
+  color: #cceeff;
+  margin-bottom: 8px;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #00ffcc;
+}
+
+.game-area {
+  margin: 12px auto;
+  width: 640px;
+  max-width: 94%;
+  height: 220px;
+  background-color: rgba(0, 0, 40, 0.75);
+  border: 2px solid rgba(0,191,255,0.25);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.character {
+  width: 48px;
+  height: 48px;
+  background-color: #00bfff;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 56px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+}
+
+.jump {
+  animation: jumpAnim 0.6s ease-out;
+}
+
+@keyframes jumpAnim {
+  0% { bottom: 0; transform: translateY(0); }
+  50% { bottom: 120px; transform: translateY(-6px); }
+  100% { bottom: 0; transform: translateY(0); }
+}
+
+.obstacle {
+  width: 44px;
+  height: 44px;
+  background-color: #ff4d4d;
+  position: absolute;
+  bottom: 0;
+  right: -44px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.45);
+  animation: moveObstacle 1.9s linear infinite;
+}
+
+.obstacle.stopped {
+  animation-play-state: paused;
+}
+
+@keyframes moveObstacle {
+  from { right: -44px; }
+  to { right: 110%; }
+}
+
+.game-over {
+  margin-top: 14px;
+  color: #ffdddd;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.game-over-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.restart-btn, .home-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.restart-btn {
+  background: #00bfff;
+  color: white;
+}
+.restart-btn:hover { background: #0098dd; }
+
+.home-btn {
+  background: #333;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.home-btn:hover { background: #222; }
+
+.try-again-note {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #cfeeff;
+}
