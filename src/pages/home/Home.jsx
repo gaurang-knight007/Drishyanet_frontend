@@ -13,6 +13,18 @@ const Home = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
 
+    const faqs = [
+        { q: "What is face recognition?", a: "Face recognition is a biometric technology that identifies or verifies a person’s identity using their facial features captured in real-time or from images/videos." },
+        { q: "How much does Drishyanet cost?", a: "Drishyanet offers flexible pricing based on deployment type and scale — contact support for a customized plan suitable for schools, firms, or security use." },
+        { q: "What can I use Drishyanet for?", a: "You can use Drishyanet for automated attendance tracking, security monitoring, and real-time identity verification using face recognition." },
+        { q: "How secure is the system?", a: "All recognition data is locally processed and encrypted. The system never shares or stores facial data externally, ensuring full privacy compliance." },
+    ];
+
+    const [activeModal, setActiveModal] = useState(null);
+
+    const closeModal = () => setActiveModal(null); 
+
+
     const isValidEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
@@ -60,6 +72,7 @@ const Home = () => {
                     </h4>
                 </div>
             </div>
+
             <div id="container1" className="container1">
                 <div className="image">
                     <img src={future} alt="Future Concept" />
@@ -73,6 +86,7 @@ const Home = () => {
                     </p>
                 </div>
             </div>
+
             <div id="container3" className="container3">
                 <div className="text">
                     <h1>Smart Attendance System</h1>
@@ -88,29 +102,56 @@ const Home = () => {
                     <img src={face} alt="Face Recognition System" />
                 </div>
             </div>
-            <div id="question" className="question">
-                <h1>FAQs</h1>
-                <div className="quest">
-                    <div className="textbox">
-                      <Link to="/faq" style={{ textDecoration: "none", color: "white" }}>What is object detection?</Link>
-                    </div>
+
+            <div id="container1" className="container1">
+                <div className="image">
+                    <img src={future} alt="Future Concept" />
                 </div>
-                <div className="quest">
-                    <div className="textbox">
-                      <Link to="/faq" style={{ textDecoration: "none", color: "white" }}>How much does Drishyanet cost?</Link>      
-                    </div>
-                </div>
-                <div className="quest">
-                    <div className="textbox">
-                      <Link to="/faq" style={{ textDecoration: "none", color: "white" }}>What can I do?</Link>
-                    </div>
-                </div>
-                <div className="quest">
-                    <div className="textbox">
-                      <Link to="/faq" style={{ textDecoration: "none", color: "white" }}>What can I search?</Link>
-                    </div>
+                <div className="text">
+                    <h1>Smart Security System</h1>
+                    <p>
+                        Uses face recognition to monitor and
+                        <br />
+                        secure your premises effectively.
+                        <br />
+                        Get real-time alerts for unknown faces and searches faces.
+                    </p>
                 </div>
             </div>
+
+            <div id="question" className="question">
+                <h1>FAQs</h1>
+
+                {[
+                  { q: "What is face recognition?", a: "Face recognition is a biometric technology that identifies or verifies a person’s identity using their facial features captured in real-time or from images/videos." },
+                  { q: "How much does Drishyanet cost?", a: "Drishyanet offers flexible pricing based on deployment type and scale — contact support for a customized plan suitable for schools, firms, or security use." },
+                  { q: "What can I use Drishyanet for?", a: "You can use Drishyanet for automated attendance tracking, security monitoring, and real-time identity verification using face recognition." },
+                  { q: "How secure is the system?", a: "All recognition data is locally processed and encrypted. The system never shares or stores facial data externally, ensuring full privacy compliance." },
+                ].map((faq, index) => (
+                  <div
+                    key={index}
+                    className="quest"
+                    onClick={() => setActiveModal(index)}
+                  >
+                    <div className="textbox">{faq.q}</div>
+                  </div>
+                ))}
+
+                {/* FAQ Modals */}
+                {activeModal !== null && (
+                  <>
+                    <div className="modal-overlay" onClick={closeModal}></div>
+                    <div className="modal-content">
+                      <button className="close-btn" onClick={closeModal}>
+                        &times;
+                      </button>
+                      <h2>{faqs[activeModal].q}</h2>
+                      <p>{faqs[activeModal].a}</p>
+                    </div>
+                  </>
+                )}
+            </div>
+
             <div className="footer">
                 <div className="footercon">
                     <div className="flex1">

@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useEffect, useRef } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo1.png";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-const PYTHON_SERVER_URL = process.env.REACT_APP_PYTHON_SERVER_URL;
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:4000";
+const PYTHON_SERVER_URL = process.env.REACT_APP_PYTHON_SERVER_URL || "http://localhost:5000";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -42,14 +42,23 @@ function Dashboard() {
       else formData.append(key, form[key]);
     });
 
-    const res = await fetch(`${PYTHON_SERVER_URL}/api/students/list`, {
+    // ✅ Corrected endpoint (was /api/students/list)
+    const res = await fetch(`${PYTHON_SERVER_URL}/api/students/add`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
       },
       body: formData,
     });
-    const data = await res.json();
+
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      alert("Unexpected server response. Please check backend logs.");
+      return;
+    }
+
     alert(data.message || data.error);
     fetchStudents();
   };
@@ -144,6 +153,53 @@ function Dashboard() {
     }
   };
 
+  const [showCamera, setShowCamera] = useState(false);
+const [cameraStream, setCameraStream] = useState(null);
+
+const videoRef = useRef();
+
+const startCamera = async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    if (videoRef.current) {
+      videoRef.current.srcObject = stream;
+      setCameraStream(stream);
+    }
+  } catch (err) {
+    alert("Unable to access camera: " + err.message);
+  }
+};
+
+useEffect(() => {
+  if (showCamera) startCamera();
+  else if (cameraStream) stopCamera();
+}, [showCamera]);
+
+const stopCamera = () => {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach((track) => track.stop());
+  }
+  setShowCamera(false);
+};
+
+const captureImage = () => {
+  const canvas = document.createElement("canvas");
+  const video = videoRef.current;
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const context = canvas.getContext("2d");
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  canvas.toBlob((blob) => {
+    const file = new File([blob], "captured.jpg", { type: "image/jpeg" });
+    setForm({ ...form, file });
+  }, "image/jpeg");
+
+  stopCamera();
+};
+
+
+
   return (
     <div className="dashboard">
       <nav className="navbar-dash">
@@ -151,6 +207,9 @@ function Dashboard() {
         <div className="nav-actions">
           <button className="nav-btn121" onClick={proceedToAttendance}>
             Go to Attendance
+          </button>
+          <button className="nav-btn121" onClick={() => navigate("/search")}>
+            Go to Search
           </button>
           <button
             className="nav-btn121 logout-btn"
@@ -248,12 +307,37 @@ function Dashboard() {
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
-            <input
-              type="file"
-              onChange={(e) => setForm({ ...form, file: e.target.files[0] })}
-            />
+            <div className="image-options">
+  <label>Upload or Click Student Image:</label>
+  <div className="btn-group-img">
+    <input
+      type="file"
+      accept="image/*"
+      onChange={(e) => setForm({ ...form, file: e.target.files[0] })}
+    />
+
+    <button
+      type="button"
+      onClick={() => setShowCamera(true)}
+      className="camera-btn"
+    >
+      📸 Capture Image
+    </button>
+  </div>
+</div>
+
             <button type="submit" className="full-btn">Add</button>
           </form>
+          {showCamera && (
+  <div className="camera-modal">
+    <video ref={videoRef} autoPlay playsInline className="camera-view" />
+    <div className="camera-actions">
+      <button type="button" onClick={captureImage}>Capture</button>
+      <button type="button" onClick={stopCamera}>Cancel</button>
+    </div>
+  </div>
+)}
+
         </section>
 
         <section className="card121 registered-students-card">

@@ -5,6 +5,7 @@ import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Attendance from "./pages/attendance/Attendance";
+import Search from "./pages/search/Search";
 import "./App.css";
 import PrivateRoute from "./component/PrivateRoute";
 import NotFound from "./pages/NotFound/NotFound";
@@ -19,6 +20,7 @@ function App()
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path="/attendance" element={<PrivateRoute><Attendance /></PrivateRoute>} />
+                <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
                 <Route path="*" element={<NotFound />} />    
             </Routes>
         </Router>

@@ -4,8 +4,8 @@ import "./Attendance.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo1.png";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-const PYTHON_SERVER_URL = process.env.REACT_APP_PYTHON_SERVER_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:4000";
+const PYTHON_SERVER_URL = process.env.REACT_APP_PYTHON_SERVER_URL || "http://localhost:5000";
 
 
 function Attendance() {

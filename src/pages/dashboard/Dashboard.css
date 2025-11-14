@@ -185,3 +185,47 @@ tbody tr:last-child td {
     grid-template-rows: auto;
   }
 }
+
+.camera-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.camera-view {
+  width: 500px;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.camera-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.camera-actions button {
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.camera-actions button:nth-child(2) {
+  background: #dc3545;
+}
+
+.btn-group-img {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
